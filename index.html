@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Administrasi Guru PAI</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Cairo', sans-serif; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeInUp 0.6s ease forwards; opacity: 0; }
+    .link-btn {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .link-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(21, 128, 61, 0.25);
+    }
+    .islamic-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23d4a84420' stroke-width='0.5'/%3E%3C/svg%3E");
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto">
+  <div id="app" class="w-full min-h-full islamic-pattern" style="background-color: #f0fdf4;"><!-- Header -->
+   <header class="fade-in pt-10 pb-6 text-center px-4" style="animation-delay: 0.1s;">
+    <div class="mx-auto w-20 h-20 rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #166534, #d4a844);">
+     <svg width="40" height="40" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+     </svg>
+    </div>
+    <h1 id="title" class="text-2xl md:text-3xl font-extrabold" style="color: #166534;">Portal Administrasi Guru PAI</h1>
+    <p id="subtitle" class="mt-2 text-sm md:text-base" style="color: #4b5563;">Kumpulan Link Penting untuk Guru Pendidikan Agama Islam</p>
+   </header><!-- Profile -->
+   <section class="fade-in text-center px-4 pb-6" style="animation-delay: 0.2s;">
+    <div class="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2 shadow-md">
+     <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #166534;"><i data-lucide="user" style="width:16px;height:16px;color:white;"></i>
+     </div><span id="profileName" class="font-semibold text-sm" style="color: #166534;">Guru PAI</span>
+    </div>
+    <p class="mt-2 text-xs" style="color: #6b7280;">Memudahkan akses layanan administrasi guru dalam satu halaman</p>
+   </section><!-- Links -->
+   <main class="fade-in max-w-md mx-auto px-4 pb-10 space-y-3" style="animation-delay: 0.3s;"><a href="https://siagapendis.kemenag.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);">
+      <i data-lucide="shield" style="width:20px;height:20px;color:white;"></i>
+     </div><span class="font-semibold" style="color: #166534;">SIAGA</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://emis.kemenag.go.id/login" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);">
+      <i data-lucide="database" style="width:20px;height:20px;color:white;"></i>
+     </div><span class="font-semibold" style="color: #166534;">EMIS</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://pintar.kemenag.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);">
+      <i data-lucide="graduation-cap" style="width:20px;height:20px;color:white;"></i>
+     </div><span class="font-semibold" style="color: #166534;">PINTAR</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://udamas.jombangkab.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);">
+      <i data-lucide="file-text" style="width:20px;height:20px;color:white;"></i>
+     </div><span class="font-semibold" style="color: #166534;">UDAMAS</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://siapasn.jombangkab.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);">
+      <i data-lucide="briefcase" style="width:20px;height:20px;color:white;"></i>
+     </div><span class="font-semibold" style="color: #166534;">SIAPASN</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://myasn.bkn.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);">
+      <i data-lucide="user-check" style="width:20px;height:20px;color:white;"></i>
+     </div><span class="font-semibold" style="color: #166534;">MYASN</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://ptk.datadik.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);">
+      <i data-lucide="clipboard-list" style="width:20px;height:20px;color:white;"></i>
+     </div><span class="font-semibold" style="color: #166534;">PTK DATADIK</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a>
+   </main><!-- Footer -->
+   <footer class="fade-in text-center px-4 pb-8" style="animation-delay: 0.4s;">
+    <div class="w-16 mx-auto border-t border-green-200 mb-4"></div>
+    <p id="footerMsg" class="text-xs" style="color: #6b7280;">Semoga bermanfaat dan memudahkan tugas administrasi</p>
+    <p class="text-xs mt-1" style="color: #9ca3af;">© 2026 Guru PAI Indonesia</p>
+   </footer>
+  </div>
+  <script>
+    lucide.createIcons();
+
+    const defaultConfig = {
+      site_title: 'Portal Administrasi Guru PAI',
+      site_subtitle: 'Kumpulan Link Penting untuk Guru Pendidikan Agama Islam',
+      profile_name: 'Guru PAI',
+      footer_message: 'Semoga bermanfaat dan memudahkan tugas administrasi',
+      background_color: '#f0fdf4',
+      primary_color: '#166534',
+      surface_color: '#ffffff',
+      text_color: '#4b5563',
+      accent_color: '#d4a844'
+    };
+
+    async function onConfigChange(config) {
+      document.getElementById('title').textContent = config.site_title || defaultConfig.site_title;
+      document.getElementById('subtitle').textContent = config.site_subtitle || defaultConfig.site_subtitle;
+      document.getElementById('profileName').textContent = config.profile_name || defaultConfig.profile_name;
+      document.getElementById('footerMsg').textContent = config.footer_message || defaultConfig.footer_message;
+
+      const bg = config.background_color || defaultConfig.background_color;
+      const primary = config.primary_color || defaultConfig.primary_color;
+      const surface = config.surface_color || defaultConfig.surface_color;
+      const text = config.text_color || defaultConfig.text_color;
+      const accent = config.accent_color || defaultConfig.accent_color;
+
+      document.getElementById('app').style.backgroundColor = bg;
+      document.getElementById('title').style.color = primary;
+      document.getElementById('profileName').style.color = primary;
+      document.querySelectorAll('.link-btn span').forEach(s => s.style.color = primary);
+      document.querySelectorAll('.link-btn').forEach(b => b.style.backgroundColor = surface);
+      document.getElementById('subtitle').style.color = text;
+    }
+
+    function mapToCapabilities(config) {
+      const make = (key) => ({
+        get: () => config[key] || defaultConfig[key],
+        set: (v) => { config[key] = v; window.elementSdk.setConfig({ [key]: v }); }
+      });
+      return {
+        recolorables: [
+          make('background_color'),
+          make('surface_color'),
+          make('text_color'),
+          make('primary_color'),
+          make('accent_color')
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || 'Cairo',
+          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || 16,
+          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['site_title', config.site_title || defaultConfig.site_title],
+        ['site_subtitle', config.site_subtitle || defaultConfig.site_subtitle],
+        ['profile_name', config.profile_name || defaultConfig.profile_name],
+        ['footer_message', config.footer_message || defaultConfig.footer_message]
+      ]);
+    }
+
+    window.elementSdk.init({ defaultConfig, onConfigChange, mapToCapabilities, mapToEditPanelValues });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f6f416ba5456d06',t:'MTc3Nzk3ODk3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
