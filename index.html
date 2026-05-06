@@ -15,6 +15,8 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .fade-in { animation: fadeInUp 0.6s ease forwards; opacity: 0; }
+    
+    /* Transisi halus untuk hover */
     .link-btn {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -22,6 +24,15 @@
       transform: translateY(-3px);
       box-shadow: 0 12px 28px rgba(21, 128, 61, 0.25);
     }
+
+    /* Transisi untuk rotasi panah */
+    .arrow-icon {
+      transition: transform 0.3s ease;
+    }
+    .arrow-rotate {
+      transform: rotate(180deg);
+    }
+
     .islamic-pattern {
       background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23d4a84420' stroke-width='0.5'/%3E%3C/svg%3E");
     }
@@ -31,6 +42,7 @@
  </head>
  <body class="h-full overflow-auto">
   <div id="app" class="w-full min-h-full islamic-pattern" style="background-color: #f0fdf4;">
+   
    <!-- Header -->
    <header class="fade-in pt-10 pb-6 text-center px-4" style="animation-delay: 0.1s;">
     <div class="mx-auto w-20 h-20 rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #166534, #d4a844);">
@@ -40,43 +52,203 @@
     </div>
     <h1 id="title" class="text-2xl md:text-3xl font-extrabold" style="color: #166534;">Portal Administrasi Guru PAI</h1>
     <p id="subtitle" class="mt-2 text-sm md:text-base" style="color: #4b5563;">Kumpulan Alat Penting untuk Guru Pendidikan Agama Islam</p>
-   </header><!-- Profile -->
-   <section class="fade-in text-center px-4 pb-6" style="animation-delay: 0.2s;">
-    <div class="flex justify-center items-center gap-3 mb-3"><a href="https://s.id/datadataku" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
-      <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #166534;">
-       <i data-lucide="user" style="width:16px;height:16px;color:white;"></i>
-      </div><span id="profileName" class="font-semibold text-sm" style="color: #166534;">Elok Santoso</span> </a> <a href="https://s.id/guru-gepeng" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
-      <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #d4a844;">
-       <i data-lucide="book" style="width:16px;height:16px;color:white;"></i>
-      </div><span class="font-semibold text-sm" style="color: #d4a844;">Perangkat Ajar</span> </a>
+   </header>
+
+   <!-- Section Menu Utama -->
+   <section class="fade-in px-4 pb-6" style="animation-delay: 0.2s;">
+    
+    <div class="max-w-md mx-auto space-y-4">
+      
+      <!-- === MENU 1: PROFIL (Elok Santoso) === -->
+      <div>
+        <!-- Tombol Utama Profil -->
+        <button onclick="toggleProfileMenu()" class="w-full bg-white rounded-full px-5 py-4 shadow-md border border-green-100 flex items-center justify-between hover:bg-green-50 transition-colors cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);">
+              <i data-lucide="user" style="width:20px;height:20px;color:white;"></i>
+            </div>
+            <span id="profileName" class="font-bold text-lg" style="color: #166534;">Elok Santoso</span>
+          </div>
+          <i data-lucide="chevron-down" id="arrowProfile" class="arrow-icon flex-shrink-0" style="width:20px;height:20px;color:#9ca3af;"></i>
+        </button>
+
+        <!-- Submenu Profil (Hidden by default) -->
+        <div id="profileSubmenu" class="hidden mt-3 pl-4 pr-1 space-y-2 border-l-4 border-green-600 ml-4">
+          
+          <!-- Link Profil Utama (Asli) -->
+          <a href="https://s.id/datadataku" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="link" class="text-gray-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Profil Utama</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: DATA KELUARGA -->
+          <a href="https://drive.google.com/drive/folders/1vwnAUipQWXPy0oa5XGLhshIqwOSE3FvT?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="users" class="text-blue-500" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Data Keluarga</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: SKP -->
+          <a href="https://drive.google.com/drive/folders/194DpOD2KKBJXk9OZJQBiaZF5c4XaevpK?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="target" class="text-orange-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">SKP</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: SERTIFIKAT -->
+          <a href="https://drive.google.com/drive/folders/1ElLoF4pw-2_10JchHWzKl87F-5kS0oIl?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="award" class="text-yellow-500" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Sertifikat</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: SKPBM -->
+          <a href="https://drive.google.com/drive/folders/13bmFMUrMw0ysinCH2aLV79oGZi-ln5nb?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="briefcase" class="text-gray-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">SKPBM</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: DATA ASN -->
+          <a href="https://drive.google.com/drive/folders/1tNxsbJpSXhQCqddOubeRnsewQq5sHTcB?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="badge-check" class="text-purple-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Data ASN</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: DATA TPG -->
+          <a href="https://drive.google.com/drive/folders/1Ji_HZueONmFhwHgTK6HHjUHTja7M2ZuL?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="wallet" class="text-green-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Data TPG</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: IJAZAH -->
+          <a href="https://drive.google.com/drive/folders/1LCVP316XOAtu1NcfTQcNEVckx5UzsKXK?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="scroll" class="text-red-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Ijazah</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+        </div>
+      </div>
+      <!-- === END MENU PROFIL === -->
+
+
+      <!-- === MENU 2: PERANGKAT AJAR === -->
+      <div>
+        <!-- Tombol Utama Perangkat Ajar -->
+        <button onclick="togglePerangkatMenu()" class="w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center justify-between hover:bg-green-50 transition-colors cursor-pointer group">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #d4a844, #b45309);">
+              <i data-lucide="book-open" style="width:20px;height:20px;color:white;"></i>
+            </div>
+            <span class="font-bold text-lg" style="color: #166534;">Perangkat Ajar</span>
+          </div>
+          <i data-lucide="chevron-down" id="arrowPerangkat" class="arrow-icon flex-shrink-0" style="width:20px;height:20px;color:#9ca3af;"></i>
+        </button>
+
+        <!-- Submenu Perangkat Ajar (Hidden by default) -->
+        <div id="perangkatSubmenu" class="hidden mt-3 pl-4 pr-1 space-y-2 border-l-4 border-yellow-500 ml-4">
+          
+          <!-- Submenu: PERANGKAT -->
+          <a href="https://drive.google.com/drive/folders/1SYUj9mmaYoWIVDxkzvB4Xo_sO7rkqIz-" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="file-stack" class="text-yellow-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Perangkat</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: ASASMEN -->
+          <a href="https://drive.google.com/drive/folders/1jFCnug12LFj32oNk1wLOrNEoODkO3dhG" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="clipboard-check" class="text-green-700" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Asasmen</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: BUKU PENDIDIKAN -->
+          <a href="https://drive.google.com/drive/folders/1ZcdOE1UAn-WNA7iFhQEOlrCFZlnifBX1" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="book" class="text-blue-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Buku Pendidikan</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+          <!-- Submenu: HASIL BELAJAR -->
+          <a href="https://drive.google.com/drive/folders/1zyM__bHdkiTnMprEqdRTBO-7p3oWk7uQ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white/90 rounded-lg px-4 py-3 shadow-sm border border-green-50 flex items-center gap-3 hover:bg-white">
+            <i data-lucide="bar-chart-2" class="text-purple-600" style="width:18px;height:18px;"></i>
+            <span class="text-sm font-semibold text-gray-700">Hasil Belajar</span>
+            <i data-lucide="external-link" class="ml-auto text-gray-400" style="width:14px;height:14px;"></i>
+          </a>
+
+        </div>
+      </div>
+      <!-- === END MENU PERANGKAT AJAR === -->
+
     </div>
-    <p class="mt-2 text-xs" style="color: #6b7280;">Memudahkan akses layanan administrasi guru dalam satu halaman</p>
-   </section><!-- Links -->
+
+    <p class="text-center mt-4 text-xs" style="color: #6b7280;">Klik menu di atas untuk membuka link</p>
+   </section>
+
+   <!-- Links Utama -->
    <main class="fade-in max-w-md mx-auto px-4 pb-10 space-y-3" style="animation-delay: 0.3s;">
     <a href="https://siagapendis.kemenag.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
      <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);"><i data-lucide="shield" style="width:20px;height:20px;color:white;"></i>
-     </div><span class="font-semibold" style="color: #166534;">SIAGA</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://emis.kemenag.go.id/login" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     </div><span class="font-semibold" style="color: #166534;">SIAGA</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> 
+     
+     <a href="https://emis.kemenag.go.id/login" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
      <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);"><i data-lucide="database" style="width:20px;height:20px;color:white;"></i>
-     </div><span class="font-semibold" style="color: #166534;">EMIS</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://pintar.kemenag.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     </div><span class="font-semibold" style="color: #166534;">EMIS</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> 
+     
+     <a href="https://pintar.kemenag.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
      <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);"><i data-lucide="graduation-cap" style="width:20px;height:20px;color:white;"></i>
-     </div><span class="font-semibold" style="color: #166534;">PINTAR</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://udamas.jombangkab.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     </div><span class="font-semibold" style="color: #166534;">PINTAR</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> 
+     
+     <a href="https://udamas.jombangkab.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
      <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);"><i data-lucide="file-text" style="width:20px;height:20px;color:white;"></i>
-     </div><span class="font-semibold" style="color: #166534;">UDAMAS</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://siapasn.jombangkab.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     </div><span class="font-semibold" style="color: #166534;">UDAMAS</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> 
+     
+     <a href="https://siapasn.jombangkab.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
      <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);"><i data-lucide="briefcase" style="width:20px;height:20px;color:white;"></i>
-     </div><span class="font-semibold" style="color: #166534;">SIAPASN</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://myasn.bkn.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     </div><span class="font-semibold" style="color: #166534;">SIAPASN</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> 
+     
+     <a href="https://myasn.bkn.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
      <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);"><i data-lucide="user-check" style="width:20px;height:20px;color:white;"></i>
-     </div><span class="font-semibold" style="color: #166534;">MYASN</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> <a href="https://ptk.datadik.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
+     </div><span class="font-semibold" style="color: #166534;">MYASN</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a> 
+     
+     <a href="https://ptk.datadik.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn block w-full bg-white rounded-xl px-5 py-4 shadow-md border border-green-100 flex items-center gap-4">
      <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #166534, #22c55e);"><i data-lucide="clipboard-list" style="width:20px;height:20px;color:white;"></i>
      </div><span class="font-semibold" style="color: #166534;">PTK DATADIK</span> <i data-lucide="external-link" class="ml-auto flex-shrink-0" style="width:16px;height:16px;color:#9ca3af;"></i> </a>
-   </main><!-- Footer -->
+   </main>
+
+   <!-- Footer -->
    <footer class="fade-in text-center px-4 pb-8" style="animation-delay: 0.4s;">
     <div class="w-16 mx-auto border-t border-green-200 mb-4"></div>
     <p id="footerMsg" class="text-xs" style="color: #6b7280;">Semoga bermanfaat dan memudahkan tugas administrasi</p>
     <p class="text-xs mt-1" style="color: #9ca3af;">© 2026 Guru PAI SDN Megaluh</p>
    </footer>
   </div>
+
   <script>
+    // Inisialisasi Ikon Lucide
     lucide.createIcons();
+
+    // Fungsi untuk Buka/Tutup Submenu PROFIL
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profileSubmenu');
+      const arrow = document.getElementById('arrowProfile');
+      
+      menu.classList.toggle('hidden');
+      arrow.classList.toggle('arrow-rotate');
+    }
+
+    // Fungsi untuk Buka/Tutup Submenu PERANGKAT AJAR
+    function togglePerangkatMenu() {
+      const menu = document.getElementById('perangkatSubmenu');
+      const arrow = document.getElementById('arrowPerangkat');
+      
+      menu.classList.toggle('hidden');
+      arrow.classList.toggle('arrow-rotate');
+    }
 
     const defaultConfig = {
       site_title: 'Portal Administrasi Guru PAI',
@@ -146,5 +318,5 @@
 
     window.elementSdk.init({ defaultConfig, onConfigChange, mapToCapabilities, mapToEditPanelValues });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f6fc136003cafeb',t:'MTc3Nzk4NDIwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ </body>
 </html>
